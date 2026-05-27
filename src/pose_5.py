@@ -78,8 +78,6 @@ def minimize_marginals(graph, initial_estimate, pose_options):
 
 def minimize_errors(graph, initial_estimate, pose_options):
 
-    return 0, 0, 1.35e-13
-
 
     best_pose = None
     best_landmark = None
@@ -108,9 +106,7 @@ def minimize_errors(graph, initial_estimate, pose_options):
                 dy = estimated.y() - gt.y()
                 list_of_errors.append(np.sqrt(dx**2 + dy**2))
 
-            sum_of_errors = sum(list_of_errors)
-            print(f"pose={pose_label}, landmark={landmark}, sum_of_errors={sum_of_errors}")
-
+            sum_of_errors = sum(list_of_errors) 
             if sum_of_errors < best_sum:
                 best_sum = sum_of_errors
                 best_pose = pose_label
