@@ -113,4 +113,6 @@ def minimize_errors(graph, initial_estimate, pose_options):
                 best_landmark = landmark
 
 
+
     return best_pose, best_landmark, best_sum
+
