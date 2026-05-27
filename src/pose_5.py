@@ -104,7 +104,9 @@ def minimize_errors(graph, initial_estimate, pose_options):
                 estimated = result.atPose2(key)
                 dx = estimated.x() - gt.x()
                 dy = estimated.y() - gt.y()
-                list_of_errors.append(np.sqrt(dx**2 + dy**2))
+                dtheta = estimated.theta() - gt.theta()
+
+                list_of_errors.append(abs(dx) + abs(dy) + abs(dtheta))
 
             sum_of_errors = sum(list_of_errors) 
             if sum_of_errors < best_sum:
